@@ -1212,7 +1212,9 @@ textarea{
 }
 
 .modal .row .item .box img {
-    transform: scale(0.7);
+    /*transform: scale(0.7);*/
+    width: 100px;
+    margin-right: 20px;
 }
 
 .modal .row .item .box__content {

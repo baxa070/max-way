@@ -1,3 +1,4 @@
+
 {% load static %}
 
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -32,9 +33,28 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="{% url 'user_list' %}" class="nav-link">
+            <i class="nav-icon far fa-image"></i>
+            <p>User</p>
+          </a>
+        </li>
+         <li class="nav-item">
+          <a href="{% url 'category_list' %}" class="nav-link">
             <i class="nav-icon far fa-image"></i>
             <p>Category</p>
+          </a>
+        </li>
+         <li class="nav-item">
+          <a href="{% url 'product_list' %}" class="nav-link">
+            <i class="nav-icon far fa-image"></i>
+            <p>Product</p>
+          </a>
+        </li>
+
+    <li class="nav-item">
+          <a href="{% url 'order_list' %}" class="nav-link">
+            <i class="nav-icon far fa-image"></i>
+            <p>Order</p>
           </a>
         </li>
         <li class="nav-item">

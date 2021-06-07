@@ -14,9 +14,9 @@ class Product(models.Model):
     title = models.CharField(max_length=100, blank=False, null=False)
     description = models.TextField()
     image = models.ImageField(upload_to='images/', blank=False)
-    price = models.CharField(max_length=100, blank=False, null=False)
+    price = models.PositiveIntegerField(blank=False, null=False)
     category = models.ForeignKey(Category, blank=False, null=True, on_delete=models.SET_NULL)
-    foods = models.ManyToManyField('self')
+    foods = models.ManyToManyField('self', blank=True)
     created_at = models.DateField(auto_now_add=True)
 
     def __str__(self):
@@ -24,9 +24,9 @@ class Product(models.Model):
 
 
 class Order(models.Model):
-    product = models.ManyToManyField(Product)
-    total_price = models.CharField(max_length=100, blank=False, null=False)
-    status = models.IntegerField(blank=False, null=False, default=0)
+    products = models.JSONField(blank=False, null=False)
+    total_price = models.PositiveIntegerField(default=0)
+    status = models.IntegerField(blank=False, null=False, default=1)
     created_at = models.DateField(auto_now_add=True)
 
 

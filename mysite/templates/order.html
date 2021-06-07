@@ -107,7 +107,7 @@
               <div class="shop">
                 <button class="shop--icon" onclick="modal()">
                    <svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 7V5C4 2.23858 6.23858 0 9 0C11.7614 0 14 2.23858 14 5V7H17C17.5523 7 18 7.44772 18 8V20C18 20.5523 17.5523 21 17 21H1C0.447715 21 0 20.5523 0 20V8C0 7.44772 0.447715 7 1 7H4ZM4 9H2V19H16V9H14V11H12V9H6V11H4V9ZM12 5V7H6V5C6 3.34315 7.34315 2 9 2C10.6569 2 12 3.34315 12 5Z" fill="#F1B301"/></svg></button>
-                <div class="shop--text">  <a href="#" onclick="modal()"> Korzina<br><span class="shopSpan">23,000 <span>UZS</span></span></a></div>
+                <div class="shop--text">  <a href="#" onclick="modal()"> Korzina<br><span class="shopSpan">{{ order.product.price }}<span>UZS</span></span></a></div>
               </div>
             </div>
           </div>
@@ -160,7 +160,9 @@
                       <div class="box__title"> Double Burger</div>
                       <div class="box__text"> Горячая закуска с митболами из говядины, томатами, моцареллой и соусом чипотле</div>
                       <div class="box__const">
-                        <div class="box__cost"> 23,000 UZS</div>
+                       {% for order in orders %}
+                        <div class="box__cost">{{ orders.total_price }} UZS</div>
+                        {% endfor %}
                       </div>
                     </div>
                   </div>
@@ -169,11 +171,11 @@
             </div>
             <div class="total"> 
               <div class="title">Итого:</div>
-              <div class="cost">23,500 <span>UZS</span></div>
+              <div class="cost">{{ orders.total_price }} <span>UZS</span></div>
             </div>
             <div class="buttons">
-              <button class="clear"><a href="{% url 'home' %}"> Очистить</a></button>
-              <button class="order"><a href="{% url 'order' %}">Заказать</a></button>
+              <button class="clear"><a href="{% url 'home-page' %}"> Очистить</a></button>
+              <button class="order"><a href="{% url 'order-page' %}">Заказать</a></button>
             </div>
           </div>
           <div class="button">
